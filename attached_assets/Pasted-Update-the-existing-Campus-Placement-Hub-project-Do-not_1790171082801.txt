@@ -1,0 +1,82 @@
+Update the existing Campus Placement Hub project. Do not rebuild the project from scratch and do not remove existing Student or Recruiter functionality.
+
+IMPORTANT USER ROLES:
+
+The system must have exactly 3 roles:
+
+1. STUDENT
+2. RECRUITER
+3. PLACEMENT_OFFICER
+
+PLACEMENT_OFFICER means the college Placement Officer / Placement Cell Administration (PLO).
+
+AUTHENTICATION:
+
+Update the existing login system to support all 3 roles.
+
+Create a professional Login page with:
+
+- Email
+- Password
+- Login button
+- Forgot Password
+- Student registration link
+- Recruiter registration link
+- Placement Officer login option
+
+The Placement Officer must have a separate clearly visible option:
+"Placement Officer / College Admin Login"
+
+Do NOT allow users to select Placement Officer during public registration.
+
+PLO accounts must be created/seeded by the system administrator/development database and must not be publicly registerable.
+
+After successful login, redirect users according to role:
+
+STUDENT → /student/dashboard
+RECRUITER → /recruiter/dashboard
+PLACEMENT_OFFICER → /plo/dashboard
+
+Implement role-based protected routes.
+
+A student must never access recruiter or PLO pages.
+
+A recruiter must never access student or PLO pages.
+
+Only PLACEMENT_OFFICER can access /plo/* routes.
+
+Keep the existing UI design and CampusHire branding.
+
+Do not break existing registration or login functionality.
+
+If the current project already has authentication code, modify it instead of creating duplicate authentication systems.
+
+Update the database/user model to support:
+
+id
+firstName
+lastName
+email
+password
+role
+isActive
+createdAt
+updatedAt
+
+Use secure password hashing. Never store plain-text passwords.
+
+Add clear error messages for:
+- Invalid email/password
+- Unauthorized role
+- Inactive account
+- Missing fields
+
+Add logout functionality.
+
+After implementing, test:
+1. Student login
+2. Recruiter login
+3. PLO login
+4. Invalid login
+5. Protected route access
+6. Logout

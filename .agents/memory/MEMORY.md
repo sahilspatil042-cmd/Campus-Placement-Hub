@@ -1,0 +1,1 @@
+- [Workspace package resolution](workspace-package-resolution.md) — ad-hoc Node module checks from the workspace root may not resolve artifact-local dependencies; validate through package scripts or bundled services.
