@@ -26,6 +26,7 @@ import AdminCompanies from '@/pages/admin/AdminCompanies';
 import AdminDrives from '@/pages/admin/AdminDrives';
 import AdminDriveApplicants from '@/pages/admin/AdminDriveApplicants';
 import AdminUsers from '@/pages/admin/AdminUsers';
+import AdminPlaceholder from '@/pages/admin/AdminPlaceholder';
 
 import RecruiterDashboard from '@/pages/recruiter/RecruiterDashboard';
 import RecruiterProfile from '@/pages/recruiter/RecruiterProfile';
@@ -102,6 +103,12 @@ function App() {
                 <Route path="/plo/drives" element={<AdminDrives />} />
                 <Route path="/plo/drives/:id/applicants" element={<AdminDriveApplicants />} />
                 <Route path="/plo/users" element={<AdminUsers />} />
+                <Route path="/plo/applications" element={<AdminPlaceholder title="Applications" description="The application review workspace is ready to be connected to its approval workflow." />} />
+                <Route path="/plo/result-verification" element={<AdminPlaceholder title="Result verification" description="Verify drive outcomes and publish confirmed results from this workspace." />} />
+                <Route path="/plo/offer-verification" element={<AdminPlaceholder title="Offer verification" description="Review offer details before they are recorded in student placement history." />} />
+                <Route path="/plo/statistics" element={<AdminPlaceholder title="Statistics" description="Explore deeper placement outcomes and reporting once the statistics view is enabled." />} />
+                <Route path="/plo/notifications" element={<AdminPlaceholder title="Notifications" description="Placement office alerts and system updates will appear here." />} />
+                <Route path="/plo/profile" element={<AdminPlaceholder title="Officer profile" description="Manage your placement office profile and account preferences." />} />
               </Route>
 
               {/* Legacy admin links/bookmarks continue to land in the renamed PLO area. */}

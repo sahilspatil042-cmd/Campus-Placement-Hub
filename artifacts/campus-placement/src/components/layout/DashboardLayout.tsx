@@ -2,7 +2,7 @@ import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { 
   LayoutDashboard, User, Briefcase, FileText, Bell, 
-  Users, Building, Settings, LogOut, Menu,
+  Users, Building, Settings, LogOut, Menu, FileCheck2, BadgeCheck, ChartNoAxesCombined,
   GraduationCap
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -40,12 +40,18 @@ export default function DashboardLayout({ role }: { role: 'STUDENT' | 'PLACEMENT
       { name: 'Notifications', href: '/student/notifications', icon: Bell },
     ],
     PLACEMENT_OFFICER: [
-      { name: 'Analytics', href: '/plo/dashboard', icon: LayoutDashboard },
-      { name: 'Students', href: '/plo/students', icon: GraduationCap },
-      { name: 'Recruiters', href: '/plo/recruiters', icon: Users },
+      { name: 'Dashboard', href: '/plo/dashboard', icon: LayoutDashboard },
       { name: 'Companies', href: '/plo/companies', icon: Building },
       { name: 'Placement Drives', href: '/plo/drives', icon: Briefcase },
-      { name: 'System Users', href: '/plo/users', icon: Settings },
+      { name: 'Students', href: '/plo/students', icon: GraduationCap },
+      { name: 'Applications', href: '/plo/applications', icon: FileText },
+      { name: 'Result verification', href: '/plo/result-verification', icon: FileCheck2 },
+      { name: 'Offer verification', href: '/plo/offer-verification', icon: BadgeCheck },
+      { name: 'Statistics', href: '/plo/statistics', icon: ChartNoAxesCombined },
+      { name: 'Notifications', href: '/plo/notifications', icon: Bell },
+      { name: 'Officer profile', href: '/plo/profile', icon: User },
+      { name: 'Recruiters', href: '/plo/recruiters', icon: Users },
+      { name: 'System users', href: '/plo/users', icon: Settings },
     ],
     RECRUITER: [
       { name: 'Dashboard', href: '/recruiter/dashboard', icon: LayoutDashboard },
@@ -74,6 +80,7 @@ export default function DashboardLayout({ role }: { role: 'STUDENT' | 'PLACEMENT
                 key={item.href}
                 to={item.href}
                 onClick={() => setIsOpen(false)}
+                data-testid={`link-nav-${item.href.replaceAll('/', '-').replace(/^-/, '')}`}
                 className={cn(
                   "flex items-center gap-3 rounded-lg px-3 py-2.5 transition-all",
                   isActive 
